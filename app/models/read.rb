@@ -6,7 +6,8 @@ class Read < ApplicationRecord
   end
 
   def self.top_ten_daily
-    raw = self.all.map{ |read| [read.url, read.todays_hits.count]}.sort.reverse.to_h
-    raw.map { |url, hits| Hotread.new(url: url, hits: hits)}.first(10)
+    raw = self.all.map{ |read| [read.url, read.todays_hits.count]}
+    sorted = raw.sort_by{|k,v|v}.reverse.to_h
+    sorted.map { |url, hits| Hotread.new(url: url, hits: hits)}.first(10)
   end
 end
