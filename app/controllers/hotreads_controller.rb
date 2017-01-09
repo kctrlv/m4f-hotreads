@@ -11,7 +11,7 @@ class HotreadsController < ApplicationController
       Read.create(url: params[:url])
     else
       current_hits = @read.first.hits
-      @read.first.update_attribute(hits: current_hits + 1)
+      @read.first.update_attribute(:hits, current_hits + 1)
     end
   end
 end
