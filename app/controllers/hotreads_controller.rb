@@ -3,7 +3,6 @@ class HotreadsController < ApplicationController
 
   def index
     @hotreads = Read.top_ten_daily
-    byebug
   end
 
   def create
