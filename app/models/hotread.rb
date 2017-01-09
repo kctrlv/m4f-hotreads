@@ -1,0 +1,2 @@
+class Hotread < ApplicationRecord
+end
