@@ -5,6 +5,10 @@ class HotreadsController < ApplicationController
     @hotreads = Read.top_ten_daily
   end
 
+  def api_index
+    render json: Read.top_ten_daily.pluck(:url)
+  end
+
   def create
     @read = Read.where(url: params[:url])
     if @read.empty?
